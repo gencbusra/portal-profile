@@ -1,12 +1,52 @@
-<?= $this->title = 'Modül çalışıyor.'; ?>
-<div class="site-index">
+<?php
 
-    <div class="jumbotron">
-        <h1>Kou Osl Yii2 App</h1>
+use yii\helpers\Html;
+use yii\grid\GridView;
 
-        <p class="lead">Örnek uygulamayı başarılı bir şekilde çalıştırdınız.</p>
+/* @var $this yii\web\View */
+/* @var $searchModel vendor\kouosl\profil\models\ProfileSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-        <p><a class="btn btn-lg btn-success" href="#">Modüller ve konfürgasyon!</a></p>
-    </div>
+$this->title = 'Profiles';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="profile-index">
 
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Profile', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'user_id',
+            'name',
+            'surname',
+            'birthday',
+            //'school',
+            //'start_date',
+            //'graduation_year',
+            //'job',
+            //'company',
+            //'department',
+            //'phone_number',
+            //'mail_address:ntext',
+            //'abilities:ntext',
+            //'experiences:ntext',
+            //'hobbies:ntext',
+            //'link:ntext',
+            //'status',
+            //'photo',
+            //'image_url:url',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>
