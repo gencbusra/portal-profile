@@ -17,8 +17,8 @@ class ProfileSearch extends Profile
     public function rules()
     {
         return [
-            [['id', 'user_id', 'surname', 'phone_number', 'status'], 'integer'],
-            [['name', 'birthday', 'school', 'start_date', 'graduation_year', 'job', 'company', 'department', 'mail_address', 'abilities', 'experiences', 'hobbies', 'link', 'photo', 'image_url'], 'safe'],
+            [['phone_number'], 'integer'],
+            [['name',  'surname', 'birthday', 'school', 'start_date', 'graduation_year', 'job', 'company', 'department', 'mail_address', 'abilities', 'experiences', 'hobbies', 'link', 'photo'], 'safe'],
         ];
     }
 
@@ -59,13 +59,11 @@ class ProfileSearch extends Profile
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
             'surname' => $this->surname,
             'birthday' => $this->birthday,
             'start_date' => $this->start_date,
             'graduation_year' => $this->graduation_year,
             'phone_number' => $this->phone_number,
-            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
@@ -78,8 +76,7 @@ class ProfileSearch extends Profile
             ->andFilterWhere(['like', 'experiences', $this->experiences])
             ->andFilterWhere(['like', 'hobbies', $this->hobbies])
             ->andFilterWhere(['like', 'link', $this->link])
-            ->andFilterWhere(['like', 'photo', $this->photo])
-            ->andFilterWhere(['like', 'image_url', $this->image_url]);
+            ->andFilterWhere(['like', 'photo', $this->photo]);
 
         return $dataProvider;
     }
