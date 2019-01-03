@@ -1,51 +1,18 @@
 <?php
+use kouosl\theme\helpers\Html;
+use kouosl\theme\widgets\Portlet;
 
-use yii\helpers\Html;
-use yii\grid\GridView;
-
-/* @var $this yii\web\View */
-/* @var $searchModel vendor\kouosl\profil\models\ProfileSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Profiles';
+$this->title = 'Index Sample';
+$data['title'] = Html::encode($this->title);
 $this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="profile-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Profile', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+Portlet::begin(['title' => $this->title,'subTitle' => 'samples data','icon' => 'glyphicon glyphicon-cog']);
 
-            'id',
-            'name',
-            'surname',
-            'birthday',
-            //'school',
-            //'start_date',
-            //'graduation_year',
-            //'job',
-            //'company',
-            //'department',
-            //'phone_number',
-            //'mail_address:ntext',
-            //'abilities:ntext',
-            //'experiences:ntext',
-            //'hobbies:ntext',
-            //'link:ntext',
-            //'status',
-            //'photo',
-            //'image_url:url',
+echo $this->render('index');
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-</div>
+Portlet::end();
+
+
+
