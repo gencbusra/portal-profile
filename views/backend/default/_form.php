@@ -12,10 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'user_id')->textInput() ?>
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'surname')->textInput() ?>
@@ -46,11 +42,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'photo')->textInput() ?>
-
-    <?= $form->field($model, 'image_url')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
